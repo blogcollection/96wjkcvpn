@@ -1,0 +1,122 @@
+---
+const nodes = [
+  {
+    flag: '🇭🇰',
+    region: '中国香港',
+    code: 'Hong Kong',
+    tag: '日常主力',
+    tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    desc: '适合日常网络浏览与极低延迟需求场景。直连亚太核心互联节点。',
+    suitedFor: ['日常网页浏览', '即时通信协作', '低延迟响应'],
+  },
+  {
+    flag: '🇯🇵',
+    region: '日本',
+    code: 'Japan',
+    tag: '影音娱乐',
+    tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
+    desc: '适合日本本土网络资源、高清流媒体影音播放以及特定游戏联机加速。',
+    suitedFor: ['影音媒体播放', '游戏服务连接', '日本地区应用'],
+  },
+  {
+    flag: '🇸🇬',
+    region: '新加坡',
+    code: 'Singapore',
+    tag: 'AI 加速',
+    tagColor: 'bg-purple-50 text-purple-700 border-purple-200',
+    desc: '东南亚网络核心枢纽，适合访问各类主流 AI 工具及跨境商务平台。',
+    suitedFor: ['海外 AI 工具', '东南亚业务', '学术与研发'],
+  },
+  {
+    flag: '🇺🇸',
+    region: '美国',
+    code: 'United States',
+    tag: '广域覆盖',
+    tagColor: 'bg-neutral-100 text-neutral-800 border-neutral-200',
+    desc: '覆盖北美核心骨干网络，适合访问全球性开源社区、开发者平台及丰富海外资源。',
+    suitedFor: ['全球技术社区', '国际媒体资讯', '云端开发生态'],
+  },
+  {
+    flag: '🇹🇼',
+    region: '中国台湾',
+    code: 'Taiwan',
+    tag: '高质备用',
+    tagColor: 'bg-amber-50 text-amber-700 border-amber-200',
+    desc: '中文本地化网络资源访问的理想备选，延迟表现优秀，线路负载平稳。',
+    suitedFor: ['繁体中文生态', '地区流媒体', '多线路分流'],
+  },
+];
+---
+
+<section id="nodes" class="py-20 md:py-28 bg-[#FAFAFC] border-t border-[#EAEAEA]">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 md:mb-16 gap-6">
+      <div>
+        <div class="honor-badge mb-4">
+          节点网络
+        </div>
+        <h2 class="text-[34px] sm:text-[44px] md:text-[50px] font-bold tracking-tight text-[#111111] leading-[1.15]">
+          连接你需要的地方
+        </h2>
+        <p class="text-[17px] md:text-[18px] text-[#666666] mt-3">
+          覆盖常用海外网络区域，按需智能匹配。
+        </p>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-2 text-xs text-[#777777] bg-white px-4 py-2 rounded-full border border-[#E5E5EB]">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>全部核心线路实时监控中</span>
+      </div>
+    </div>
+
+    <!-- Node Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+      {nodes.map((node) => (
+        <div class="bg-white rounded-2xl p-6 border border-[#EAEAEF] hover:border-neutral-300 hover:shadow-subtle transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <!-- Flag & Tag -->
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-3xl filter drop-shadow-2xs">{node.flag}</span>
+              <span class={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${node.tagColor}`}>
+                {node.tag}
+              </span>
+            </div>
+
+            <!-- Region & Code -->
+            <h3 class="text-xl font-bold text-[#111111] group-hover:text-black">
+              {node.region}
+            </h3>
+            <p class="text-xs font-mono text-[#888888] tracking-wider uppercase mt-0.5">
+              {node.code}
+            </p>
+
+            <!-- Description -->
+            <p class="text-[13px] text-[#666666] mt-4 leading-relaxed line-clamp-3">
+              {node.desc}
+            </p>
+          </div>
+
+          <!-- Suitable tags -->
+          <div class="mt-6 pt-4 border-t border-neutral-100 space-y-1.5">
+            <span class="text-[11px] text-[#999999] block">适用场景</span>
+            <div class="flex flex-wrap gap-1.5">
+              {node.suitedFor.map((item) => (
+                <span class="text-[11px] text-[#444444] bg-[#F5F5F7] px-2 py-0.5 rounded">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Conservative disclaimer banner -->
+    <div class="mt-8 text-center text-xs text-[#888888]">
+      * 线路可用性可能根据本地运营商及网络环境有所波动，建议根据实时连接状态切换最佳节点。
+    </div>
+
+  </div>
+</section>

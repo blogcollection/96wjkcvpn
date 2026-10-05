@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: #ffffff;
+    color: #111111;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    background-color: #111111;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Subtle Apple/HONOR style transitions and cards */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.honor-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #666666;
+  background-color: #F5F5F7;
+  border-radius: 9999px;
+  border: 1px solid #EAEAEA;
+}
+
+.honor-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111111;
+  color: #FFFFFF;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.honor-btn-primary:hover {
+  background-color: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.honor-btn-primary:active {
+  transform: translateY(0);
+  background-color: #000000;
+}
+
+.honor-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.honor-btn-secondary:hover {
+  color: #444444;
+}
+
+.honor-card {
+  background-color: #F7F7F8;
+  border-radius: 28px;
+  border: 1px solid #EFEFEF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.honor-card:hover {
+  background-color: #F2F2F4;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.06);
+}

@@ -1,0 +1,64 @@
+---
+const categories = [
+  {
+    title: '高速连接',
+    desc: '低延迟专线接入',
+    href: '#features',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  },
+  {
+    title: '全球节点',
+    desc: '港台日新美核心区域',
+    href: '#nodes',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+  {
+    title: '多端支持',
+    desc: '电脑手机平板全覆盖',
+    href: '#devices',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+  },
+  {
+    title: 'AI 工具',
+    desc: '高效辅助常用生产力',
+    href: '#ai-tools',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>`,
+  },
+  {
+    title: '影音访问',
+    desc: '流畅享受多媒体内容',
+    href: '#features',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+  {
+    title: '简单上手',
+    desc: '三步直连无需复杂参数',
+    href: '#steps',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+  },
+];
+---
+
+<section class="border-y border-[#EAEAEA] bg-[#FAFAFC] py-6 sm:py-8">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+    <!-- Horizontal scroll wrapper for mobile, grid for desktop -->
+    <div class="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto no-scrollbar pb-2 sm:pb-0 snap-x">
+      {categories.map((item) => (
+        <a 
+          href={item.href}
+          class="flex-shrink-0 w-[175px] sm:w-auto snap-start bg-white p-4 rounded-2xl border border-[#EBEBEF] hover:border-neutral-300 hover:shadow-subtle hover:-translate-y-1 transition-all duration-200 group flex flex-col items-center sm:items-start text-center sm:text-left"
+        >
+          <div class="w-10 h-10 rounded-xl bg-[#F5F5F7] group-hover:bg-[#EFEFEF] flex items-center justify-center transition-colors mb-3">
+            <Fragment set:html={item.icon} />
+          </div>
+          <h4 class="text-[14px] font-semibold text-[#111111] group-hover:text-black">
+            {item.title}
+          </h4>
+          <p class="text-[12px] text-[#777777] mt-0.5 line-clamp-1">
+            {item.desc}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

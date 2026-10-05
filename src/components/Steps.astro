@@ -1,0 +1,91 @@
+---
+const REGISTER_URL = "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso";
+
+const steps = [
+  {
+    step: '01',
+    title: '注册账号',
+    desc: '点击注册链接，使用邮箱即可轻松创建账户。',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>`,
+  },
+  {
+    step: '02',
+    title: '选择方案',
+    desc: '根据自己的实际网络与流量使用需求，选择合适的服务方案。',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>`,
+  },
+  {
+    step: '03',
+    title: '连接使用',
+    desc: '按照对应设备（Windows / Mac / iOS / Android）教程完成配置并连接。',
+    icon: `<svg class="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  },
+];
+---
+
+<section id="steps" class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+    
+    <!-- Title -->
+    <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+      <div class="honor-badge mb-4">
+        轻松开始
+      </div>
+      <h2 class="text-[34px] sm:text-[44px] md:text-[50px] font-bold tracking-tight text-[#111111] leading-[1.15]">
+        三步开始
+      </h2>
+      <p class="text-[16px] md:text-[18px] text-[#666666] mt-4">
+        化繁为简，无需复杂专业知识，快速开启连接体验。
+      </p>
+    </div>
+
+    <!-- 3 Step Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      {steps.map((item, index) => (
+        <div class="bg-[#F7F7F9] rounded-3xl p-8 sm:p-10 border border-[#EBEBEF] flex flex-col justify-between hover:shadow-subtle hover:-translate-y-1 transition-all duration-300 relative group">
+          <div>
+            <!-- Number & Icon -->
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-4xl font-light text-neutral-300 font-mono group-hover:text-neutral-500 transition-colors">
+                {item.step}
+              </span>
+              <div class="w-12 h-12 rounded-2xl bg-white border border-[#E5E5EB] flex items-center justify-center shadow-2xs">
+                <Fragment set:html={item.icon} />
+              </div>
+            </div>
+
+            <!-- Title & Desc -->
+            <h3 class="text-2xl font-bold text-[#111111] tracking-tight mb-3">
+              {item.title}
+            </h3>
+            <p class="text-[15px] text-[#666666] leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+
+          <!-- Bottom check tag -->
+          <div class="mt-8 pt-6 border-t border-[#EAEAEF] text-xs text-[#888888] flex items-center gap-1.5 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>流程耗时约 1-3 分钟</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Box -->
+    <div class="text-center mt-14">
+      <a 
+        href={REGISTER_URL} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="honor-btn-primary px-10 py-4 text-[16px] font-medium shadow-md group"
+      >
+        <span>立即开始</span>
+        <svg class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

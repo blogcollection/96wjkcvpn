@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+  showText?: boolean;
+}
+
+const { class: className = "w-8 h-8", showText = true } = Astro.props;
+---
+
+<a href="/" class="flex items-center gap-2.5 group select-none">
+  <div class="relative flex items-center justify-center">
+    <svg class={className} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="10" fill="#111111" class="transition-transform group-hover:scale-95 duration-200" />
+      <path d="M9 22L21 10H27L15 22H9Z" fill="#FFFFFF" />
+      <path d="M14 26L26 14H31L19 26H14Z" fill="#FFFFFF" fill-opacity="0.8" />
+      <circle cx="10" cy="22" r="1.5" fill="#FFFFFF" />
+      <circle cx="15" cy="26" r="1.5" fill="#FFFFFF" />
+      <circle cx="26" cy="10" r="1.5" fill="#FFFFFF" />
+      <circle cx="30" cy="14" r="1.5" fill="#FFFFFF" />
+    </svg>
+  </div>
+  {showText && (
+    <span class="text-[17px] font-semibold tracking-tight text-[#111111]">
+      网际快车
+    </span>
+  )}
+</a>

@@ -1,0 +1,123 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "网际快车 - 稳定简单的网络连接服务",
+  description = "网际快车提供面向中文用户的网络连接服务入口，支持常用设备与多个海外地区节点，帮助用户更简单地完成日常网络连接。",
+  canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : "https://96.wjkcvpn.sbs/",
+} = Astro.props;
+
+const siteUrl = "https://96.wjkcvpn.sbs";
+
+// Schema.org Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "网际快车",
+  "url": siteUrl,
+  "logo": `${siteUrl}/favicon.svg`,
+  "description": description,
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "网际快车",
+  "url": siteUrl,
+  "description": description,
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "网际快车是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "网际快车是面向中文用户的网络连接服务入口，主要用于连接部分海外网络资源与常用网络服务。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支持哪些设备？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "根据服务端实际配置，可通过 Windows、macOS、iOS、Android 等常见设备使用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以访问 AI 工具吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "部分线路可用于访问海外 AI 服务，但实际可用情况会受到节点、地区及第三方平台政策影响。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "应该选择哪个节点？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一般优先选择距离较近、延迟较低的节点，例如香港、日本或新加坡。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "不会配置怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以根据对应设备的使用教程完成客户端安装和配置。"
+      }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="网际快车, 机场, 网络加速, 海外网络连接, 节点服务, 稳定加速, AI工具加速" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#FFFFFF" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="网际快车" />
+    <meta property="og:image" content={`${siteUrl}/favicon.svg`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/favicon.svg`} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body class="bg-white text-[#111111] antialiased selection:bg-neutral-900 selection:text-white">
+    <slot />
+  </body>
+</html>

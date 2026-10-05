@@ -1,0 +1,112 @@
+---
+const REGISTER_URL = "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso";
+
+const tools = [
+  {
+    name: 'ChatGPT',
+    category: 'AI 对话与创作',
+    desc: '辅助日常写作、代码编写与多语言翻译',
+    badge: '主流 AI',
+    color: 'bg-emerald-50 text-emerald-800 border-emerald-200/60',
+  },
+  {
+    name: 'Claude',
+    category: '长文本智能分析',
+    desc: '深度逻辑推理、长篇文档总结与分析',
+    badge: '高效生产力',
+    color: 'bg-amber-50 text-amber-800 border-amber-200/60',
+  },
+  {
+    name: 'Gemini',
+    category: '多模态智能体',
+    desc: 'Google 生态协同，快速检索与多模态理解',
+    badge: '智能助手',
+    color: 'bg-blue-50 text-blue-800 border-blue-200/60',
+  },
+  {
+    name: 'YouTube',
+    category: '超清流媒体',
+    desc: '全球优质公开课程、4K 影音与创意视频',
+    badge: '视听娱乐',
+    color: 'bg-red-50 text-red-800 border-red-200/60',
+  },
+  {
+    name: 'Google',
+    category: '学术与国际搜索',
+    desc: '高效检索全球学术论文、技术文档与资讯',
+    badge: '全球信息',
+    color: 'bg-sky-50 text-sky-800 border-sky-200/60',
+  },
+  {
+    name: 'X (Twitter)',
+    category: '实时国际动态',
+    desc: '第一时间掌握科技前沿资讯与行业社群讨论',
+    badge: '行业动态',
+    color: 'bg-neutral-100 text-neutral-800 border-neutral-200/60',
+  },
+];
+---
+
+<section id="ai-tools" class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+    
+    <!-- Big Visual Container -->
+    <div class="bg-gradient-to-b from-[#F7F7F9] to-[#F1F1F4] rounded-3xl p-8 sm:p-12 lg:p-16 border border-[#EBEBEF] shadow-premium">
+      <div class="max-w-3xl mb-12">
+        <div class="honor-badge mb-4">
+          工具与应用生态
+        </div>
+        <h2 class="text-[34px] sm:text-[44px] md:text-[52px] font-bold tracking-tight text-[#111111] leading-[1.15]">
+          连接之后，<br class="hidden sm:inline" />打开更多工具。
+        </h2>
+        <p class="text-[16px] md:text-[18px] text-[#555555] mt-4 leading-relaxed">
+          适用于访问部分海外网络服务与 AI 工具。<br class="hidden md:inline" />
+          实际可用情况可能因地区、节点与第三方服务政策变化。
+        </p>
+      </div>
+
+      <!-- Tools Grid (Minimalist & Editorial) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {tools.map((item) => (
+          <div class="bg-white rounded-2xl p-6 border border-[#E5E5EB] shadow-2xs hover:border-neutral-400 hover:shadow-subtle transition-all duration-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-lg font-bold text-[#111111] tracking-tight">{item.name}</span>
+                <span class={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${item.color}`}>
+                  {item.badge}
+                </span>
+              </div>
+              <p class="text-xs text-[#888888] font-medium mb-2">{item.category}</p>
+              <p class="text-[13px] text-[#666666] leading-relaxed">{item.desc}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-[#999999]">
+              <span>服务可用性</span>
+              <span class="text-emerald-600 font-medium flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                适配支持
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Bottom Row -->
+      <div class="mt-12 pt-8 border-t border-[#E2E2EA] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <p class="text-xs sm:text-sm text-[#777777] text-center sm:text-left">
+          * 网际快车仅提供基础网络连接，不代理任何第三方平台账号注册及会员服务。
+        </p>
+        <a 
+          href={REGISTER_URL} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="honor-btn-primary px-8 py-3.5 text-[15px] font-medium shrink-0 group shadow-sm"
+        >
+          <span>开始使用网际快车</span>
+          <span class="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
